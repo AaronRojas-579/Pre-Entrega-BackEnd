@@ -14,6 +14,9 @@ const MongoAtlas = require("../../daos/dataBaseMongo")
 const modelUsuarios = require("../../daos/models/usuario.model")
 const usuarios = new MongoAtlas(modelUsuarios)
 
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+
 //Funciones para Encriptar
 
 function isValidPassword (user,password){
@@ -34,16 +37,16 @@ passport.use("login",new LocalStrategy(async (username,password,done)=>{
     try{
         let user = (await usuarios.getByUsername(username))[0]
         if(!user){
-            console.log(`Usuario no encontrado con el username ${username}`)
+            loggerWarn.warn(`Usuario no encontrado con el username ${username}`)
             return done(null,false)
         }else if(!isValidPassword(user,password)){
-            console.log(`Contraseña invalida`)
+            loggerWarn.warn(`Contraseña invalida`)
             return done(null,false)
         }else{ 
             return done(null,user)
         }
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }))
 
@@ -54,7 +57,7 @@ async (req,username,password,done)=>{
     try{
         let user = await usuarios.getByUsername(username);
         if(user.length !== 0){
-            console.log(`Ya existe un usuario con este username`)
+            loggerWarn.warn(`Ya existe un usuario con este username`)
             return done(null,false)
         }
         const newUser = {
@@ -73,7 +76,7 @@ async (req,username,password,done)=>{
         return done(null,nuevoUsuario)
 
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }   
 ))

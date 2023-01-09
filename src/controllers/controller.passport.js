@@ -2,6 +2,9 @@
 //Requerimos el api Faker
 const apiFaker = require("../utils/apiFaker")
 
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+
 //Configuración en el caso que el usario no sea administrador
 const sessionGet = (req,res)=>{
     try{
@@ -12,7 +15,7 @@ const sessionGet = (req,res)=>{
          }
 
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }
 
@@ -24,7 +27,7 @@ const sessionLogout = (req,res)=>{
             res.render(`pages/logout.ejs`,{user})
         })
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }
 
@@ -41,7 +44,7 @@ const apiProductos = async (req,res)=>{
         const produtosLista = await productos.getAll()
         res.render("pages/apiFaker.ejs",{api,user,produtosLista})
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }
 

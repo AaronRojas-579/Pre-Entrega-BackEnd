@@ -8,6 +8,8 @@ mongoose.set('strictQuery',false)
 //Requerimos la varibales de entorno porque la utilizaremos para url de la conexion con nuestra app
 require('dotenv').config()
 
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("../src/utils/loggers")
 
 class MongoDB {
     constructor(model){
@@ -23,23 +25,23 @@ class MongoDB {
                 useNewUrlParser:true,
                 useUnifiedTopology:true,
             })
-            console.log(`Base de Datos Conectada`)
+            loggerConsola.info(`Base de Datos Conectada`)
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async save(Obj){
         try{
             if(Obj.length !== undefined ){
                 await this.model.insertMany(Obj);
-                console.log(`Nuevos dato cargados a la base de datos`)
+                loggerConsola.info(`Nuevos dato cargados a la base de datos`)
             }else{
                 await this.model.insertMany(Obj)
                 //no existe la funcion 'insert' solo esta 'insertMany'
-                console.log(`Nuevo dato cargado a la base de datos`)   
+                loggerConsola.info(`Nuevo dato cargado a la base de datos`)   
             }
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async getAll(){
@@ -47,7 +49,7 @@ class MongoDB {
             const data = await this.model.find({})
             return data;
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async getById(idABuscar){
@@ -55,15 +57,15 @@ class MongoDB {
             const data = await this.model.find({_id:idABuscar})
             return data;
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async updateById(idAModificar,modificaciones){
         try{
             await this.model.updateOne({"_id":idAModificar},{$set:modificaciones})
-            console.log(`Dato modificado`)
+            loggerConsola.info(`Dato modificado`)
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async getByUsername (username){
@@ -72,23 +74,23 @@ class MongoDB {
             // console.log(data)
             return data;
         }catch(err){
-            console.log(err)
+            loggerError.error(err)
         }
     }
     async deleteById(idAEliminar){
         try{
             await this.model.deleteOne({_id:idAEliminar})
-            console.log(`Dato Eliminado`)
+            loggerConsola.info(`Dato Eliminado`)
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
     async deleteAll(){
         try{
             await this.model.deleteMany({})
-            console.log(`Todos los datos han sido eliminados`)
+            loggerConsola.info(`Todos los datos han sido eliminados`)
         }catch(error){
-            console.log(error)
+            loggerError.error(error)
         }
     }
 }

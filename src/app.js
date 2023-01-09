@@ -12,6 +12,8 @@ app.use(express.urlencoded({extended:true}))
 
 //Middleware para usar public como ruta predeterminada (archivos estaticos)
 app.use(express.static('public'))
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("./utils/loggers")
 
 //-----------------------------
 
@@ -75,7 +77,7 @@ const io = new IOServer (httpServer);
 //Configuarión del Socket.io
 
 io.on('connection',async socket =>{
-    console.log('Nuevo Cliente conectado')
+    loggerConsola.info('Nuevo Cliente conectado')
     //Este evento se carga cada vez que un nuevo cliente se conecte 
 
     //CONFIGARCIÓN DEL SOCKET.IO PARA EL LA LISTA DE PRODUCTOS

@@ -1,3 +1,7 @@
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+
+
 const authenticate = (req,res,next)=>{
     try{
         if(!req.isAuthenticated()){
@@ -7,7 +11,7 @@ const authenticate = (req,res,next)=>{
         }
     
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 }
 

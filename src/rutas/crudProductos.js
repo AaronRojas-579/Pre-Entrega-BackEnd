@@ -4,14 +4,17 @@ const MongoAtlas = require("../../daos/dataBaseMongo")
 const modelProductos =require("../../daos/models/productos.model")
 const productos = new MongoAtlas(modelProductos)
 
+//Agredamos los Loggers 
+const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+
 router.get("/eliminar/:id", async (req,res)=>{
     try{
         const {id}=req.params;
         await productos.deleteById(id)
-        console.log("Producto Eliminado")
+        loggerConsola.info("Producto Eliminado")
         res.redirect("/passport")
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
@@ -22,7 +25,7 @@ router.get("/formUpdate/:id", async (req,res)=>{
         res.render("pages/formUpdate",{product})
 
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
@@ -35,12 +38,12 @@ router.post("/editar/:id", async (req,res)=>{
             precio:req.body.precio
         }
         await productos.updateById(id,nuevoProducto)
-        console.log(`Producto Actulizado con exito`)
+        loggerConsola.info(`Producto Actulizado con exito`)
 
         res.redirect("/passport")
 
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
@@ -59,7 +62,7 @@ router.get("/agregarCarrito",async(req,res)=>{
 
         const arrPedidos = req.session.pedidos
         //en req.session es donde se puede guardar cosas a la sesseion iniciada
-        console.log(arrPedidos)
+        // console.log(arrPedidos)
 
         if(arrPedidos){
             //si pasa por aqui es que ya existe 
@@ -74,12 +77,12 @@ router.get("/agregarCarrito",async(req,res)=>{
             req.session.pedidos = pedidos
         }
 
-        console.log(req.session.pedidos)
+        // console.log(req.session.pedidos)
 
         res.redirect("/passport/api")
         
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
@@ -91,7 +94,7 @@ router.get("/eliminarCarrito/:id",(req,res)=>{
         req.session.pedidos = pedidos
         res.render("pages/carrito.ejs",{pedidos,user})
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
@@ -116,10 +119,11 @@ router.get("/comprarCarrito", async (req,res)=>{
         await enviarMensajeWhatsapp (mensajePedido,user)
         // res.send(`Tu pedido esta en proceso en caso de duda sobre tu pedido podes hablar a este numbero ${process.env.MY_NUMBER}`)
         await enviarMail(user.email,mensajePedido,numeroVendedor)
+        loggerConsola.info("Compra realizada")
 
         res.render("pages/compraRealizada.ejs",{numeroVendedor})
     }catch(err){
-        console.log(err)
+        loggerError.error(err)
     }
 })
 
