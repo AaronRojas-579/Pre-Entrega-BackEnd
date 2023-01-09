@@ -8,7 +8,7 @@ const {cpus} = require("os")
 
 const PORT = process.env.PORT || 8080;
 const modoCluster = process.argv[2] ==  "CLUSTER"
-console.log(modoCluster)
+// console.log(modoCluster)
 
 if(modoCluster && cluster.isPrimary){
     const numCPUs = cpus().length
