@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CursoBackEnd</title>
+</head>
+<body>
+    <h1>Hola soy la carpeta publica</h1>
+    <div>
+        <h3>Inicie Sesión</h3>
+        <form action="/passport/login" method="POST" autocomplete="off">
+            <div>
+                <h4>Nombre de Usuario</h4>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div>
+                <h4>Contraseña</h4>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <br>
+            <button type="submit">Ingresar</button>
+        </form>
+        <br>
+        <div>
+            <h3>Registrate</h3>
+            <form action="/passport/register" method="POST" autocomplete="off">
+                <div>
+                    <h4>Nombre de Usuario</h4>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div>
+                    <h4>Contraseña</h4>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <h4>Correo Electrónico</h4>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <h4>Número de telefono</h4>
+                    <p>Incluya los prefijos internacionales</p>
+                    <input type="tel" name="tel" id="tel" required>
+                </div>
+                <div>
+                    <h4>Ingrese una Imagen</h4>
+                    <input type="url" name="url" id="url" required>
+                </div>
+                <div>
+                    <h4>Eres Adminitrador</h4>
+                    <select name="admin" id="admin" required>
+                        <option value=true >Si</option>
+                        <option value=false selected  >No</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

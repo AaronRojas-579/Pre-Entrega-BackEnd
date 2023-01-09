@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para editar el producto</title>
+</head>
+<body>
+    <div>
+        <h2>Formulario para editar</h2>
+        <form action="/crud/editar/<%=product._id%>" method="POST">
+            <h4>Nombre anterior : <%=product.nombre%></h4>
+            <input type="text" name="nombre" id="nombre" placeholder="Ingrese nuevo nombre" required>
+            <br>
+            <h4>Calidad Anterior : <%=product.calidad%></h4>
+            <select name="calidad" id="calidad" required>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+                <option value="" selected disabled >Ingrese la calidad</option>
+            </select>
+            <br>
+            <h4>Precio Anterior : <%=product.precio%></h4>
+            <input type="numbre" name="precio" id="precio" required>
+            <br>
+            <button type="submit">Modificar Porducto</button>
+
+        </form>
+    </div>
+    
+</body>
+</html>

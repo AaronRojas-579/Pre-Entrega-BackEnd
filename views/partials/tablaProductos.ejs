@@ -1,0 +1,18 @@
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Calidad</th>
+            <th>Precio</th>
+        </tr>
+        <%produtosLista.forEach(per=>{%>
+            <tr>
+                <td><%=per.nombre%></td>
+                <td><%=per.calidad%></td>
+                <td><%=per.precio%></td>
+                <td><button onclick="return restarCarrito(`<%=per._id%>`)">-</button> <span id="<%=per._id%>">0</span> <button onclick="return sumarCarrito(`<%=per._id%>`)">+</button></td>
+                <td><button onclick="return agregarCarrito(`<%=per._id%>`)">Agregar al Carrito</button></td>
+            </tr>
+        <%})%>
+    </table>
+</div>

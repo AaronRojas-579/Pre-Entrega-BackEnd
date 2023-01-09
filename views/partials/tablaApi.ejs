@@ -1,0 +1,16 @@
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Foto</th>
+        </tr>
+        <%api.forEach(per=>{%>
+            <tr>
+                <td><%=per.nombre%></td>
+                <td><%=per.precio%></td>
+                <td> <img src=<%=per.foto%>> </td>
+            </tr>
+        <%})%>
+    </table>
+</div>

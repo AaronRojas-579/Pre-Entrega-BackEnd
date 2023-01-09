@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Faker</title>
+</head>
+<body>
+    <h1>Bienvenido <%=user.username%> </h1>
+    <img src="<%=user.url%>" alt="foto de perfil">
+    <br>
+    <a href="/passport/logout">Cerrar Sesión</a>
+
+    <h2>Tabla de Productos Faker</h2>
+    <% if(api.length !== 0 ){ %>
+        <%- include('../partials/tablaApi.ejs') %>
+    <%}else{%>
+        <h3>No ha encontrado datos</h3>
+    <%}%>
+    <br>
+    <h2>Productos de la tienda</h2>
+    <br>
+    <% if(produtosLista.length !== 0 ){ %>
+        <%- include('../partials/tablaProductos.ejs') %>
+    <%}else{%>
+        <h3>No ha encontrado datos</h3>
+    <%}%>
+    <br>
+    <button> <a href="/passport/verCarrito">Ver Carrito</a> </button>
+    <br>
+    <a href="/passport">Pagina de configuración, solo para administradores</a>
+
+    <script src="/carrito.js"></script>
+</body>
+</html>

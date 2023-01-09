@@ -1,0 +1,24 @@
+<form  action="./admin" method="POST" autocomplete="off">
+    <!-- Campo nombre del producto -->
+    <div class="inputFormulario">
+        <label for="title">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+    </div>
+    <!-- Campo calidad del producto -->
+    <div class="inputFormulario">
+        <label for="calidad">Calidad</label>
+        <select name="calidad" id="calidad" required>
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+            <option value="" selected disabled >Ingrese la calidad</option>
+        </select>
+    </div>
+    <!-- Campo precio del producto -->
+    <div class="inputFormulario">
+        <label for="title">Precio</label>
+        <input type="text" id="precio" name="precio" required>
+    </div>
+     <!-- Boton de envío -->
+     <button class="subirProducto">Enviar</button>
+</form>

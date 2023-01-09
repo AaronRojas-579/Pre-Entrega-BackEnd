@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Muy Importante para el uso de Socket.io agregar este script -->
+    <title>CursoBackEnd</title>
+    <script src="https://unpkg.com/ejs@3.1.8/ejs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+    integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Bienvenido <%=user.username%> </h1>
+    <img src="<%=user.url%>" alt="foto de perfil">
+    <br>
+    <a href="/passport/logout">Cerrar Sesión</a>
+
+    <h3><a href="/passport/api">Ver Productos ApiFaker</a></h3>
+
+    <h2>Ingrese Nuevo Producto</h2>
+    <%- include('../partials/formulario.ejs') %>
+    <br>
+    <% if(produtosLista.length !== 0 ){ %>
+        <%- include('../partials/tablaProductosAdmin.ejs') %>
+    <%}else{%>
+        <h3>No ha encontrado datos</h3>
+    <%}%>
+
+    
+    <!-- CHAT GLOBAL -->
+    <div class="chatGlobal">
+        <h2>Centro de Mensajes</h2>
+        <h3>Escribe tu mensaje</h3>
+        <form onsubmit="return addMensaje(this)" id="mensaje" autocomplete="off">
+            <div id="inputFormulario">
+                <label for="nombreMensaje">Nombre</label>
+                <input type="text" name="nombreMensaje" id="nombreMensaje">
+            </div>
+            <div id="inputFormulario">
+                <label for="text">Ingrese su mensaje</label>
+                <input type="text" name="text" id="text">
+            </div>
+            <button class="subirMensaje">Enviar Mensaje</button>
+        </form>
+        <div id="mostrarMensajes"></div>
+    </div>
+
+
+
+    <script src="/main.js"></script>
+</body>
+</html>

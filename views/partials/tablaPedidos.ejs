@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Calidad</th>
+            <th>Cantidad</th>
+            <th>Precio Total</th>
+        </tr>
+        <%pedidos.forEach(per=>{%>
+            <tr>
+                <td><%=per.productoPedido.nombre%></td>
+                <td><%=per.productoPedido.calidad%></td>
+                <td><%=per.cant%></td>
+                <td><%=per.total%></td>
+                <td><button><a href="/crud/eliminarCarrito/<%=per.id%>">Eliminar del Carrito</a></button></td>
+            </tr>
+        <%})%>
+    </table>
+    <button><a href="/crud/comprarCarrito">Comprar</a></button>
+</div>
