@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>CursoBackEnd</title>
 </head>
 <body>
-    <h1>Hola soy la carpeta publica</h1>
-    <div>
-        <h3>Inicie Sesión</h3>
-        <form action="/passport/login" method="POST" autocomplete="off">
-            <div>
-                <h4>Nombre de Usuario</h4>
-                <input type="text" name="username" id="username" required>
-            </div>
-            <div>
-                <h4>Contraseña</h4>
-                <input type="password" name="password" id="password" required>
-            </div>
-            <br>
-            <button type="submit">Ingresar</button>
-        </form>
-        <br>
-        <div>
-            <h3>Registrate</h3>
+    <div class="container-form">
+        <div class="form">
+            <form action="/passport/login" method="POST" autocomplete="off">
+                <div>
+                    <h4 class="title-form">Inicie Sesión</h4>
+                </div>
+                <div>
+                    <h4>Nombre de Usuario</h4>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div>
+                    <h4>Contraseña</h4>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div>
+                    <button type="submit" class="botonSubmit">Ingresar</button>
+                </div>
+            </form>
+        </div>
+        <div class="form">
             <form action="/passport/register" method="POST" autocomplete="off">
+                <div>
+                    <h4 class="title-form" >Registrate</h4>
+                </div>
                 <div>
                     <h4>Nombre de Usuario</h4>
                     <input type="text" name="username" id="username" required>
@@ -40,7 +46,7 @@
                 </div>
                 <div>
                     <h4>Número de telefono</h4>
-                    <p>Incluya los prefijos internacionales</p>
+                    <h4>Incluya los prefijos internacionales</h4>
                     <input type="tel" name="tel" id="tel" required>
                 </div>
                 <div>
@@ -49,13 +55,14 @@
                 </div>
                 <div>
                     <h4>Eres Adminitrador</h4>
-                    <select name="admin" id="admin" required>
+                    <select name="admin" id="admin" required class="botonSubmit">
                         <option value=true >Si</option>
                         <option value=false selected  >No</option>
                     </select>
                 </div>
-                <br>
-                <button type="submit">Ingresar</button>
+                <div>
+                    <button type="submit" class="botonSubmit">Ingresar</button>
+                </div>
             </form>
         </div>
     </div>
