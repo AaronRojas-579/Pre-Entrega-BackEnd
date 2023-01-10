@@ -8,14 +8,17 @@ const bCrypt = require("bcrypt")
 //Base de datos de los usuarios
 
 //Requrimos Funcion para Enviar mails
-const {enviarMail,mailNuevoRegistro} =require("../utils/gmail")
+const {enviarMail,mailNuevoRegistro} =require("../service/utils/gmail")
 
-const MongoAtlas = require("../../daos/dataBaseMongo")
-const modelUsuarios = require("../../daos/models/usuario.model")
-const usuarios = new MongoAtlas(modelUsuarios)
+// const MongoAtlas = require("../../daos/dataBaseMongo")
+// const modelUsuarios = require("../../daos/models/usuario.model")
+// const usuarios = new MongoAtlas(modelUsuarios)
+
+//Lo importamos del service
+const usuarios = require("../service/service.usuarios")
 
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("../service/utils/loggers")
 
 //Funciones para Encriptar
 

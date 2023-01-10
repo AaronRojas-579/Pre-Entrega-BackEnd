@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}))
 //Middleware para usar public como ruta predeterminada (archivos estaticos)
 app.use(express.static('public'))
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("./utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("./service/utils/loggers")
 
 //-----------------------------
 
@@ -50,16 +50,20 @@ app.use('/admin',routeAdmin)
 app.use('/passport',rutasPassport)
 app.use("/crud",routasCrud)
 
-//Importamos el DAOS
-const MongoDB = require('../daos/dataBaseMongo')
+// //Importamos el DAOS
+// const MongoDB = require('../daos/dataBaseMongo')
+// //Productos
+// const modelProductos = require('../daos/models/productos.model')
+// const productos = new MongoDB(modelProductos)
+// //Mensajes
+// const modelMensajes = require('../daos/models/mensaje.model')
+// const mensajes = new MongoDB(modelMensajes)
 
-//Productos
-const modelProductos = require('../daos/models/productos.model')
-const productos = new MongoDB(modelProductos)
+//Importamos productos y mensajes de la base de datos
 
-//Mensajes
-const modelMensajes = require('../daos/models/mensaje.model')
-const mensajes = new MongoDB(modelMensajes)
+const productos = require("./service/service.productos")
+const mensajes =require("./service/service.mensajes")
+
 
 //Motores de plantilla 
 app.set('view engine','ejs') //Aqui indicamos qué motor de plantilla usaremos 

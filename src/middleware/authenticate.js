@@ -1,5 +1,5 @@
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("../service/utils/loggers")
 
 
 const authenticate = (req,res,next)=>{

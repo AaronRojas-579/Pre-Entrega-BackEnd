@@ -2,10 +2,14 @@ const express =require('express')
 const {Router} = express
 const router = Router()
 
-//Requerimos los productos de la base de datos
-const MongoDB = require("../../daos/dataBaseMongo")
-const modelProductos = require("../../daos/models/productos.model")
-const productos = new MongoDB(modelProductos)
+// //Requerimos los productos de la base de datos
+// const MongoDB = require("../../daos/dataBaseMongo")
+// const modelProductos = require("../../daos/models/productos.model")
+// const productos = new MongoDB(modelProductos)
+
+//Importamos los productos del service
+const productos =require("../service/service.productos")
+
 //Middleware de authenticate
 const middlewareAuth = require("../middleware/authenticate")
 

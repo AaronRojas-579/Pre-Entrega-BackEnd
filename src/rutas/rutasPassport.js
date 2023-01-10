@@ -33,7 +33,7 @@ router.get("/login/error",(req,res)=>{
 })
 
 router.get("/register/error",(req,res)=>{
-    console.log(req.body)
+    // console.log(req.body)
     res.render("pages/errorRegister.ejs")
 })
 

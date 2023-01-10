@@ -9,7 +9,7 @@ mongoose.set('strictQuery',false)
 require('dotenv').config()
 
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("../src/utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("../src/service/utils/loggers")
 
 class MongoDB {
     constructor(model){

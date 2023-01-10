@@ -1,9 +1,9 @@
 
 //Requerimos el api Faker
-const apiFaker = require("../utils/apiFaker")
+const apiFaker = require("../service/utils/apiFaker")
 
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("../service/utils/loggers")
 
 //Configuración en el caso que el usario no sea administrador
 const sessionGet = (req,res)=>{
@@ -31,10 +31,12 @@ const sessionLogout = (req,res)=>{
     }
 }
 
-//Requerimos los productos creados desde la base de datos
-const MongoAtlas = require("../../daos/dataBaseMongo")
-const modelProductos = require("../../daos/models/productos.model")
-const productos = new MongoAtlas(modelProductos)
+// //Requerimos los productos creados desde la base de datos
+// const MongoAtlas = require("../../daos/dataBaseMongo")
+// const modelProductos = require("../../daos/models/productos.model")
+// const productos = new MongoAtlas(modelProductos)
+
+const productos = require("../service/service.productos")
 
 const apiProductos = async (req,res)=>{
     try{

@@ -1,7 +1,8 @@
+const app = require("./src/app")
 //Requirimos la variables de entorno
 require('dotenv').config()
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("./src/utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("./src/service/utils/loggers")
 
 const cluster = require("cluster")
 const {cpus} = require("os")
@@ -22,7 +23,6 @@ if(modoCluster && cluster.isPrimary){
         cluster.fork()
     })
 }else{
-    const app = require("./src/app")
 
     app.listen(PORT,()=>{
         loggerConsola.info(`Server listen on PORT ${PORT}`)

@@ -1,11 +1,15 @@
 const router = require("express").Router()
-//Requerimos la clase de Productos de la base de datos
-const MongoAtlas = require("../../daos/dataBaseMongo")
-const modelProductos =require("../../daos/models/productos.model")
-const productos = new MongoAtlas(modelProductos)
+
+// //Requerimos la clase de Productos de la base de datos
+// const MongoAtlas = require("../../daos/dataBaseMongo")
+// const modelProductos =require("../../daos/models/productos.model")
+// const productos = new MongoAtlas(modelProductos)
+
+//Importamos productos del service 
+const productos = require("../service/service.productos")
 
 //Agredamos los Loggers 
-const {loggerConsola,loggerWarn,loggerError} = require("../utils/loggers")
+const {loggerConsola,loggerWarn,loggerError} = require("../service/utils/loggers")
 
 router.get("/eliminar/:id", async (req,res)=>{
     try{
@@ -100,8 +104,8 @@ router.get("/eliminarCarrito/:id",(req,res)=>{
 
 //Enviamos el mensaje con los pedidos a Whatsapp 
 require("dotenv").config()
-const {enviarMensajeWhatsapp,mensajePedidos} = require("../utils/whatsapp")
-const {enviarMail} =require("../utils/gmail")
+const {enviarMensajeWhatsapp,mensajePedidos} = require("../service/utils/whatsapp")
+const {enviarMail} =require("../service/utils/gmail")
 
 
 router.get("/comprarCarrito", async (req,res)=>{
