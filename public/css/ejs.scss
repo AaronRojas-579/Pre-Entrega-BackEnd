@@ -1,5 +1,163 @@
 @import "variables";
+@mixin centrarForm{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
 
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 body{
     background-color: $colorWeb3;
+}
+nav{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    background-color: $colorWeb2;
+    padding: .8rem 2rem;
+    .bienvenida{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        img{
+            // display: flex;
+            // flex-flow: column nowrap;
+            // justify-content: center;
+            // align-items: center;
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            border-radius: 5rem 5rem 5rem 5rem;
+            // background-position: center;
+        }
+    }
+    *{
+        color:$colorWeb4;
+        font-family: $fuente;
+        text-decoration: none;
+    }
+    .cerrarSesion{
+        font-size: 1.3rem;
+    }
+}
+
+.catalogoProductos{
+    width: 100%;
+    height: 20rem;
+    background-image: url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    button{
+        background-color: $colorWeb2;
+        padding: 1.5rem;
+        border-radius: 3rem 0rem 3rem 0rem;
+        transition: 0.5s;
+        &:hover{
+            transform: scale(1.2);
+            overflow: hidden;
+            
+        }
+        *{
+            text-decoration: none;
+            color: $colorWeb3;
+            font-family: $fuente;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.containerAdmin{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem;
+    .chatGlobal{
+        border-radius: 3rem 3rem 3rem 3rem;
+        background-color: $colorWeb2;
+        padding: 3rem;
+        .formMensaje{
+            @include centrarForm;
+            #mensaje{
+                @include centrarForm;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+.chatTitle{
+    color: $colorWeb5;
+    font-family: $fuente;
+
+}
+.tablaProctos{
+    border-radius: 3rem 3rem 3rem 3rem;
+    background-color: $colorWeb2;
+    padding: 2.5rem;
+    @include centrarForm();
+    .formMensaje{
+        @include centrarForm;
+    }
+    .textForm{
+        color:$colorWeb5;
+        font-family: $fuente;
+    }
+}
+.tabla{
+    color: $colorWeb5;
+    font-family: $fuente;
+    a{
+        text-decoration: none;
+        color: $colorWeb3;
+        font-family: $fuente;
+    }
+}
+.subirProducto{
+    a{
+        text-decoration: none;
+        color:$colorWeb2;
+    }
+    background-color: $colorWeb3;
+    color:$colorWeb2;
+    font-weight: bolder;
+    padding: .5rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.contenedorApi{
+    margin: 2rem;
+    @include centrarForm();
+    a{
+        text-decoration:none;
+    }
+}
+
+.botonAzul{
+    a{
+        text-decoration: none;
+        color:$colorWeb3;
+    }
+    background-color: $colorWeb2;
+    font-weight: bolder;
+    padding: 1rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+    margin-top: 2rem;
+    
 }

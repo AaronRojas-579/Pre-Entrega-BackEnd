@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/ejs.css">
     <title>Carrito</title>
 </head>
 <body>
-    <h2>Bienvenido <%=user.username%> </h2>
-    <img src="<%=user.url%>" alt="foto de perfil">
-    <br>
-    <a href="/passport/logout">Cerrar Sesión</a>
+    <nav>
+        <div class="bienvenida">
+            <h1>Bienvenido/a <%=user.username%> </h1>
+            <div class="img">
+                <img src="<%=user.url%>" alt="foto de perfil">
+            </div>
+        </div>
+        <a class="cerrarSesion" href="/passport/logout">Cerrar Sesión</a>
+    </nav>
 
-    <h3>Pedidos</h3>
-    <% if(pedidos && pedidos.length !== 0){ %>
-        <%- include('../partials/tablaPedidos.ejs') %>
-    <%}else{%>
-        <h3>No tenes nada agregado al Carrito</h3>
-    <%}%>
-    <br>
+    <div class="contenedorApi">
+        <div class="tablaProctos">
+            <h3 class="chatTitle">Pedidos</h3>
+            <% if(pedidos && pedidos.length !== 0){ %>
+                <%- include('../partials/tablaPedidos.ejs') %>
+            <%}else{%>
+                <h3 class="chatTitle">No tenes nada agregado al Carrito</h3>
+            <%}%>
+        </div>
+    </div>
 
 </body>
 </html>

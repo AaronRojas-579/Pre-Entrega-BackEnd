@@ -8,29 +8,43 @@
     <title>Productos Faker</title>
 </head>
 <body>
-    <h1>Bienvenido <%=user.username%> </h1>
-    <img src="<%=user.url%>" alt="foto de perfil">
-    <br>
-    <a href="/passport/logout">Cerrar Sesión</a>
+    <nav>
+        <div class="bienvenida">
+            <h1>Bienvenido/a <%=user.username%> </h1>
+            <div class="img">
+                <img src="<%=user.url%>" alt="foto de perfil">
+            </div>
+        </div>
+        <a class="cerrarSesion" href="/passport/logout">Cerrar Sesión</a>
+    </nav>
+    
+    <div class="contenedorApi">
 
-    <h2>Tabla de Productos Faker</h2>
-    <% if(api.length !== 0 ){ %>
-        <%- include('../partials/tablaApi.ejs') %>
-    <%}else{%>
-        <h3>No ha encontrado datos</h3>
-    <%}%>
-    <br>
-    <h2>Productos de la tienda</h2>
-    <br>
-    <% if(produtosLista.length !== 0 ){ %>
-        <%- include('../partials/tablaProductos.ejs') %>
-    <%}else{%>
-        <h3>No ha encontrado datos</h3>
-    <%}%>
-    <br>
-    <button> <a href="/passport/verCarrito">Ver Carrito</a> </button>
-    <br>
-    <a href="/passport">Pagina de configuración, solo para administradores</a>
+        <div class="tablaProctos">
+            <h2 class="chatTitle">Tabla de Productos Faker</h2>
+            <% if(api.length !== 0 ){ %>
+                <%- include('../partials/tablaApi.ejs') %>
+            <%}else{%>
+                <h3 class="chatTitle">No ha encontrado datos</h3>
+            <%}%>
+        </div>
+    
+    
+        <div class="tablaProctos">
+            <h2 class="chatTitle">Productos de la tienda</h2>
+            <% if(produtosLista.length !== 0 ){ %>
+                <%- include('../partials/tablaProductos.ejs') %>
+            <%}else{%>
+                <h3 class="chatTitle">No ha encontrado datos</h3>
+            <%}%>
+            <button class="subirProducto"> <a href="/passport/verCarrito">Ver Carrito</a> </button>
+        </div>
+                
+        <button class="botonAzul">
+            <a href="/passport">Pagina de configuración, solo para administradores</a>
+        </button>
+    </div>
+    
 
     <script src="/carrito.js"></script>
 </body>

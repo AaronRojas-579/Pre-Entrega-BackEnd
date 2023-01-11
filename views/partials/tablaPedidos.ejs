@@ -1,4 +1,5 @@
-<div>
+<div class="tabla">
+    <hr>
     <table>
         <tr>
             <th>Nombre</th>
@@ -12,9 +13,10 @@
                 <td><%=per.productoPedido.calidad%></td>
                 <td><%=per.cant%></td>
                 <td><%=per.total%></td>
-                <td><button><a href="/crud/eliminarCarrito/<%=per.id%>">Eliminar del Carrito</a></button></td>
+                <td><button class="subirProducto"><a href="/crud/eliminarCarrito/<%=per.id%>">Eliminar del Carrito</a></button></td>
             </tr>
         <%})%>
     </table>
-    <button><a href="/crud/comprarCarrito">Comprar</a></button>
+    <hr>
+    <button class="subirProducto"><a href="/crud/comprarCarrito">Comprar</a></button>
 </div>

@@ -1,14 +1,19 @@
-$colorWeb1 : #000000;
-$colorWeb2 : #14213d;
-$colorWeb3 : #fca311;
-$colorWeb4 : #e5e5e5;
-$colorWeb5 : #ffffff;
-
+@import "variables";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   background-color: $colorWeb3;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
 }
 .container-form{
-  height: 90vh;
+  height: 100vh;
+  width: 70vw;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -17,7 +22,7 @@ body{
     background-color: $colorWeb2;
     padding: 1rem;
     border-radius: 7rem 1rem 7rem 7em ;
-    margin: 15px 10px;
+    margin: 20px 10px;
     // display: flex;
     // flex-flow: column wrap;
     // align-items: center;

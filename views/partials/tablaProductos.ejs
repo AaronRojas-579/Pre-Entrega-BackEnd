@@ -1,4 +1,5 @@
-<div>
+<div class="tabla">
+    <hr>
     <table>
         <tr>
             <th>Nombre</th>
@@ -10,9 +11,10 @@
                 <td><%=per.nombre%></td>
                 <td><%=per.calidad%></td>
                 <td><%=per.precio%></td>
-                <td><button onclick="return restarCarrito(`<%=per._id%>`)">-</button> <span id="<%=per._id%>">0</span> <button onclick="return sumarCarrito(`<%=per._id%>`)">+</button></td>
-                <td><button onclick="return agregarCarrito(`<%=per._id%>`)">Agregar al Carrito</button></td>
+                <td><button class="subirProducto" onclick="return restarCarrito(`<%=per._id%>`)">-</button> <span id="<%=per._id%>">0</span> <button class="subirProducto" onclick="return sumarCarrito(`<%=per._id%>`)">+</button></td>
+                <td><button class="subirProducto" onclick="return agregarCarrito(`<%=per._id%>`)">Agregar al Carrito</button></td>
             </tr>
         <%})%>
     </table>
+    <hr>
 </div>

@@ -19,7 +19,7 @@ function makeHtmlList(menasjes){
     const html = menasjes.map(elem=>{
         return(`
             <div>
-                <strong>${elem.author.nombre}</strong> <span style="color:brown">${elem.author.date}</span> : <i style="color:green" >${elem.text}</i>
+                <strong class="chatTitle">${elem.author.nombre}</strong> <span style="color:brown">${elem.author.date}</span> : <i style="color:green" >${elem.text}</i>
             </div>
         `)
     }).join(" ");

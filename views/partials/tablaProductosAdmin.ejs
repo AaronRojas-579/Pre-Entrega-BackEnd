@@ -1,10 +1,10 @@
-<div>
+<div class="tabla">
+    <hr>
     <table>
         <tr>
             <th>Nombre</th>
             <th>Calidad</th>
             <th>Precio</th>
-            <th></th>
         </tr>
         <%produtosLista.forEach(per=>{%>
             <tr>
@@ -14,6 +14,7 @@
                 <td><a href="/crud/eliminar/<%=per._id%>">Eliminar</a></td>
                 <td><a href="/crud/formUpdate/<%=per._id%>">Editar</a></td>
             </tr>
-        <%})%>
-    </table>
+            <%})%>
+        </table>
+        <hr>
 </div>

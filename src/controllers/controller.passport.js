@@ -31,11 +31,6 @@ const sessionLogout = (req,res)=>{
     }
 }
 
-// //Requerimos los productos creados desde la base de datos
-// const MongoAtlas = require("../../daos/dataBaseMongo")
-// const modelProductos = require("../../daos/models/productos.model")
-// const productos = new MongoAtlas(modelProductos)
-
 const productos = require("../service/service.productos")
 
 const apiProductos = async (req,res)=>{
