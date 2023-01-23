@@ -40,6 +40,7 @@ router.get("/register/error",(req,res)=>{
 router.get("/verCarrito",(req,res)=>{
     try{
         const pedidos = req.session.pedidos;
+        console.log(pedidos)
         const user = req.user;
         // res.json({pedidos,user})
         res.render("pages/carrito.ejs",{pedidos,user})

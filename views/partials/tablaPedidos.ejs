@@ -3,15 +3,15 @@
     <table>
         <tr>
             <th>Nombre</th>
-            <th>Calidad</th>
+            <!-- <th>Calidad</th> -->
             <th>Cantidad</th>
             <th>Precio Total</th>
         </tr>
         <%pedidos.forEach(per=>{%>
             <tr>
-                <td><%=per.productoPedido.nombre%></td>
-                <td><%=per.productoPedido.calidad%></td>
-                <td><%=per.cant%></td>
+                <td><%=per.nombre%></td>
+                <!-- <td><%=per.calidad%></td> -->
+                <td><%=per.cantidad%></td>
                 <td><%=per.total%></td>
                 <td><button class="subirProducto"><a href="/crud/eliminarCarrito/<%=per.id%>">Eliminar del Carrito</a></button></td>
             </tr>

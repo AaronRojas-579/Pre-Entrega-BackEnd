@@ -54,14 +54,17 @@ router.post("/editar/:id", async (req,res)=>{
 router.get("/agregarCarrito",async(req,res)=>{
     try{
         const {id,cant} = req.query
-        const productoPedido = (await productos.getById(id))[0]
+        // const productoPedido = (await productos.getById(id))[0]
 
-        const nuevoPedido = {
-            id,
-            productoPedido,
-            cant,
-            total:(cant * productoPedido.precio)
-        }
+        // const nuevoPedido = {
+        //     id,
+        //     productoPedido,
+        //     cant,
+        //     total:(cant * productoPedido.precio)
+        // }
+
+        const nuevoPedido = await productos.CarritoDTO(id,cant)
+        console.log(nuevoPedido)
 
 
         const arrPedidos = req.session.pedidos
@@ -70,7 +73,7 @@ router.get("/agregarCarrito",async(req,res)=>{
 
         if(arrPedidos){
             //si pasa por aqui es que ya existe 
-            const pedidosMenos = req.session.pedidos.filter(elem => elem.id != nuevoPedido.id )
+            const pedidosMenos = req.session.pedidos.filter(elem => elem.nombre != nuevoPedido.nombre )
             pedidosMenos.push(nuevoPedido)
             // arrPedidos.push(nuevoPedido)
             req.session.pedidos = pedidosMenos

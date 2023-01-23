@@ -1,7 +1,6 @@
 {
   "name": "repasodetodo",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,5 +27,14 @@
     "socket.io": "^4.5.4",
     "twilio": "^3.84.0",
     "twilio.js": "^1.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronRojas-579/Pre-Entrega-BackEnd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AaronRojas-579/Pre-Entrega-BackEnd/issues"
+  },
+  "homepage": "https://github.com/AaronRojas-579/Pre-Entrega-BackEnd#readme",
+  "description": ""
 }
