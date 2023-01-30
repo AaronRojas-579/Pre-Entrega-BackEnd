@@ -1,0 +1,20 @@
+  test api rest full
+Server listen on PORT 8080
+--Iniciando el Test--
+    GET
+      ✔ deberia retornar un status 200
+    POST
+Producto de prueba {
+  nombre: 'Senior',
+  precio: '6465-6265-7316-8650-9250',
+  foto: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/36.jpg'
+}
+      ✔ deberia incorparar un producto (140ms)
+    Test de 2 Porductos
+      ✔ deberia devolverme 2 productos
+    Test de error al cargar 0 productos
+      ✔ deberia devolverme 2 productos
+--Fin del Test--
+
+
+  4 passing (204ms)

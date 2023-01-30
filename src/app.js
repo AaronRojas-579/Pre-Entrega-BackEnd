@@ -5,6 +5,7 @@ require("dotenv").config()
 const routeAdmin = require('./rutas/rutasAdmin')
 const rutasPassport = require("./rutas/rutasPassport")
 const routasCrud = require("./rutas/crudProductos")
+const rotasTest = require("./rutas/test")
 
 //Configuraciones necesarias para el uso correcto del POST desde el frontend
 app.use(express.json())
@@ -49,6 +50,7 @@ app.use(passport.session())
 app.use('/admin',routeAdmin)
 app.use('/passport',rutasPassport)
 app.use("/crud",routasCrud)
+app.use("/test",rotasTest)
 
 // //Importamos el DAOS
 // const MongoDB = require('../daos/dataBaseMongo')

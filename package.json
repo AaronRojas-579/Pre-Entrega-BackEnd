@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./test/apirestfull.test.js",
     "start": "node server.js"
   },
   "keywords": [],
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
+    "axios": "^1.2.6",
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
@@ -36,5 +37,10 @@
     "url": "https://github.com/AaronRojas-579/Pre-Entrega-BackEnd/issues"
   },
   "homepage": "https://github.com/AaronRojas-579/Pre-Entrega-BackEnd#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  }
 }
