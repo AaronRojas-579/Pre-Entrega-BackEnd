@@ -11,7 +11,6 @@ const {
     createProducto,
     updateProducto,
     deleteProducto,
-    Producto
 } = require("./claseGraphql")
 
 class graphqlController {
@@ -25,7 +24,6 @@ class graphqlController {
                 createProducto,
                 updateProducto,
                 deleteProducto,
-                Producto
             },
             graphiql:true
         }
