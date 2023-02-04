@@ -20,6 +20,28 @@ class ProductosDB extends daos{
             loggerWarn.warn(err)
         }
     }
+    //Funciones para usarlos con el Graphql
+    async getProductos (){
+        const allProductos = await this.getAll();
+        return allProductos;
+    }
+    async getProducto ({id}){
+        return (await this.getById(id))[0]
+    }
+    async createProducto({datos}){
+        await this.save(datos);
+        const allProductos = await this.getAll();
+        return allProductos[allProductos.length - 1]
+    }
+    async updateProducto({id,datos}){
+        await this.updateById(id,datos)
+        return await this.getById(id)
+    }
+    async deleteProducto({id}){
+        const prodctoEliminar = await this.getById(id);
+        await this.deleteById(id)
+        return prodctoEliminar;
+    }
 
 }
 
